@@ -10,9 +10,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchMemberCounts = async () => {
       try {
-        const seRes = await fetch("http://localhost:8000/api/members/SE");
-        const teRes = await fetch("http://localhost:8000/api/members/TE");
-        const beRes = await fetch("http://localhost:8000/api/members/BE");
+        const seRes = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/members/SE");
+        const teRes = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/members/TE");
+        const beRes = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/members/BE");
 
         const seData = await seRes.json();
         const teData = await teRes.json();

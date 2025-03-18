@@ -56,7 +56,7 @@ const HackathonDashboard = () => {
 
     const fetchTeamsCount = async () => {
       try { 
-        const teamCount = await fetch("http://localhost:8000/api/hackathon/total-teams");
+        const teamCount = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/hackathon/total-teams");
         const data = await teamCount.json();
         console.log(data);
         setTeamCount(data.totalTeams); // Ensure you only store the number

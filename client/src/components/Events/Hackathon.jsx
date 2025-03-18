@@ -10,7 +10,7 @@ const Hackathon = () => {
     const fetchMembers = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/api/members/BE");
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/members/BE");
         const data = await response.json();
         setMembers(data);
         setFilteredMembers(data); // Initialize filtered list

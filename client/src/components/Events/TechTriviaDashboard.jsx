@@ -18,7 +18,7 @@ const TechTriviaDashboard = () => {
 
         await Promise.all(
           years.map(async (year) => {
-            const res = await fetch(`http://localhost:8000/api/techTrivia/${year}`);
+            const res = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/techTrivia/${year}`);
             const data = await res.json();
             counts[year] = data.length;
           })

@@ -18,7 +18,7 @@ const GenesisDashboard = () => {
 
         await Promise.all(
           years.map(async (year) => {
-            const res = await fetch(`http://localhost:8000/api/genesis/${year}`);
+            const res = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/genesis/${year}`);
             const data = await res.json();
             counts[year] = data.length;
           })

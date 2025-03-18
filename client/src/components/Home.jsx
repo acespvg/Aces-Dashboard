@@ -19,7 +19,7 @@ const Home = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/login", loginDetails);
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL  + "/api/login", loginDetails);
       localStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
     } catch (error) {

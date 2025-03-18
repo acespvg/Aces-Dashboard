@@ -8,9 +8,10 @@ function HackathonParticipants() {
   const [selectedTeam, setSelectedTeam] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/hackathon')
+    fetch(process.env.REACT_APP_BACKEND_URL + "/api/hackathon")
       .then(async (res) => {
         console.log('Response status:', res.status);
+        console.log(res);
         if (!res.ok) {
           const errorText = await res.text();
           console.error('Error response text:', errorText);
