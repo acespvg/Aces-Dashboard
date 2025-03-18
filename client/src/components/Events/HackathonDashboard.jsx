@@ -19,7 +19,7 @@ const HackathonDashboard = () => {
         const counts = {};
         await Promise.all(
           categories.map(async ({ key, route }) => {
-            const res = await fetch(`http://localhost:8000/api/hackathon/${route}`);
+            const res = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/hackathon/${route}`);
             const data = await res.json();
             counts[key] = data.length;
           })
@@ -33,9 +33,9 @@ const HackathonDashboard = () => {
     const fetchGenderCounts = async () => {
       try {
         const [maleRes, femaleRes, otherRes] = await Promise.all([
-          fetch("http://localhost:8000/api/hackathon/male-count"),
-          fetch("http://localhost:8000/api/hackathon/female-count"),
-          fetch("http://localhost:8000/api/hackathon/other-count"),
+          fetch(process.env.REACT_APP_BACKEND_URL + "/api/hackathon/male-count"),
+          fetch(process.env.REACT_APP_BACKEND_URL + "/api/hackathon/female-count"),
+          fetch(process.env.REACT_APP_BACKEND_URL + "/api/hackathon/other-count"),
         ]);
 
         const maleData = await maleRes.json();
