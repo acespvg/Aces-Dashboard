@@ -87,9 +87,9 @@ const hackathonTeamSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-}, { collection: 'Hackathon-2425' });
+}, { collection: 'teams' });
 
 // Create models
-const HackathonTeam = mongoose.model('HackathonTeam', hackathonTeamSchema, 'Hackathon-2425');
+const HackathonTeam = mongoose.model('HackathonTeam', hackathonTeamSchema, 'teams');
 
 module.exports = HackathonTeam;
